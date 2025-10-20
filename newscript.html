@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Validasi Form - Tema Soft Blue</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #d7e8ff, #f3f8ff);
+      padding: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+    }
+
+    form {
+      background: #ffffff;
+      padding: 25px 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 420px;
+      border: 2px solid #e1efff;
+    }
+
+    h2 {
+      text-align: center;
+      color: #3178c6;
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: 600;
+      color: #3178c6;
+      display: block;
+      margin-top: 12px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #bcd4f5;
+      border-radius: 8px;
+      font-size: 15px;
+      background-color: #f9fcff;
+      transition: all 0.2s ease;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #6caeff;
+      box-shadow: 0 0 6px rgba(108, 174, 255, 0.4);
+      outline: none;
+      background-color: #ffffff;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 20px;
+      padding: 10px 0;
+      background-color: #4f9cff;
+      color: white;
+      font-size: 16px;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #3e88e0;
+    }
+
+    .error {
+      color: #d9534f;
+      font-size: 14px;
+      margin-top: 4px;
+      font-style: italic;
+    }
+
+    /* Tambahan animasi ringan */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    form {
+      animation: fadeIn 0.8s ease-in-out;
+    }
+  </style>
+</head>
+<body>
+
+  <form id="contactForm" onsubmit="return validateForm()">
+    <h2>Formulir Kontak</h2>
+
+    <label for="nama">Nama:</label>
+    <input type="text" id="nama" name="nama">
+    <div class="error" id="namaError"></div>
+
+    <label for="email">Email:</label>
+    <input type="text" id="email" name="email">
+    <div class="error" id="emailError"></div>
+
+    <label for="pesan">Pesan:</label>
+    <textarea id="pesan" name="pesan" rows="4"></textarea>
+    <div class="error" id="pesanError"></div>
+
+    <button type="submit">Kirim</button>
+  </form>
+
+  <script>
+    function validateForm() {
+      const nama = document.getElementById("nama").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const pesan = document.getElementById("pesan").value.trim();
+
+      const namaError = document.getElementById("namaError");
+      const emailError = document.getElementById("emailError");
+      const pesanError = document.getElementById("pesanError");
+
+      namaError.textContent = "";
+      emailError.textContent = "";
+      pesanError.textContent = "";
+
+      let valid = true;
+
+      // Validasi Nama
+      if (nama === "") {
+        namaError.textContent = "Nama tidak boleh kosong.";
+        valid = false;
+      }
+
+      // Validasi Email
+      const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+      if (email === "") {
+        emailError.textContent = "Email tidak boleh kosong.";
+        valid = false;
+      } else if (!email.match(emailPattern)) {
+        emailError.textContent = "Format email tidak valid.";
+        valid = false;
+      }
+
+      // Validasi Pesan
+      if (pesan === "") {
+        pesanError.textContent = "Pesan tidak boleh kosong.";
+        valid = false;
+      } else if (pesan.length < 10) {
+        pesanError.textContent = "Pesan minimal 10 karakter.";
+        valid = false;
+      }
+
+      if (valid) {
+        alert("Form berhasil dikirim!");
+      }
+
+      return valid;
+    }
+  </script>
+
+</body>
+</html>
