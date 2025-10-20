@@ -1,5 +1,5 @@
-# Nama    :Syalsha Putri Ichwani   
-# NIM     :312410209
+# Nama      :Syalsha Putri Ichwani   
+# NIM       :312410209
 
 
 
