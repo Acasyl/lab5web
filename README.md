@@ -23,6 +23,10 @@
 
 
 3. 
+<br>
+
+<img width="688" height="300" alt="Cuplikan layar 2025-10-20 185719" src="https://github.com/user-attachments/assets/f6e44f6c-41f6-4ce6-b577-797b511bea78" />
+
 
 
 <img width="880" height="324" alt="Cuplikan layar 2025-10-20 010454" src="https://github.com/user-attachments/assets/f6178ebe-4f8e-422b-ab90-3c5c42c38248" />
